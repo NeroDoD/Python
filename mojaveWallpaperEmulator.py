@@ -19,8 +19,8 @@ def getInput():
                 print("     1- Mojave Desert")
                 print("     2- Solar Gradient\n")
                 choice = input()
-                if choice == "1": return "Desert"; break
-                elif choice == "2": return "Solar"; break
+                if choice == "1": return "Desert"
+                elif choice == "2": return "Solar"
                 else: print("Please enter a valid option.\nRetrying..."); time.sleep(2); subprocess.call("clear")
 
 #Wallpaper 'setter'

@@ -22,7 +22,7 @@ def getInput():
                 if choice == "1": return "Desert"; break
                 elif choice == "2": return "Solar"; break
                 else: print("Please enter a valid option.\nRetrying..."); time.sleep(2); subprocess.call("clear")
-                        
+
 #Wallpaper 'setter'
 def setWallpaper(hour):
     se = app('System Events')

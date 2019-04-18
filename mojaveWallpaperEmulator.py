@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
-from sys import platform
+import sys
+if sys.platform == "darwin": from appscript import *
 from pathlib import Path
-if platform == "darwin": from appscript import *
 import argparse
 import time
 import datetime
@@ -35,23 +35,21 @@ def macOS_setWallpaper(hour):
         os.chdir("/")
         for d in desktops:
                 desk = se.desktops[its.display_name == d]
-                desk.picture.set(mactypes.File(f"Users/{user}/Mojave Wallpaper/{folder}/{str(hour)}.jpeg"))
+                desk.picture.set(mactypes.File(f"Users/{user}/.wallchanger/{folder}/{str(hour)}.jpeg"))
 
 #Linux wallpaper 'setter'
 def linux_setWallpaper(hour):
-        os.system(f"gsettings set org.gnome.desktop.background picture-uri file://'{str(Path.home())}/Mojave Wallpaper/{folder}/{str(hour)}.jpeg'")
+        os.system(f"gsettings set org.gnome.desktop.background picture-uri file://'{str(Path.home())}/.wallchanger/{folder}/{str(hour)}.jpeg'")
 
-#Check whether program should run
-if wallpaperSettings.programDisabled:
-        while True:
-                time.sleep(999999)
+#Check whether program should run and terminate it if necessary
+if wallpaperSettings.programDisabled: sys.exit()
 
 #Actual program
 #folder = getInput()
 folder = wallpaperSettings.folder
 subprocess.call("clear")
-if platform == "darwin": macOS_setWallpaper(datetime.datetime.now().hour)
-elif platform == "linux": linux_setWallpaper(datetime.datetime.now().hour)
+if sys.platform == "darwin": macOS_setWallpaper(datetime.datetime.now().hour)
+elif sys.platform == "linux": linux_setWallpaper(datetime.datetime.now().hour)
 else:
         print("Your system is not supported.\nPress CTRL + C to exit...")
         while True: pass      
@@ -59,7 +57,7 @@ print("Press CTRL + C at any time to exit.")
 print(f"Changed wallpaper to {folder} {datetime.datetime.now().hour}:00 variant.")
 time.sleep((60*(60-datetime.datetime.now().minute)) - datetime.datetime.now().second)
 while True:
-        if platform == "darwin": macOS_setWallpaper(datetime.datetime.now().hour)
-        elif platform == "linux": linux_setWallpaper(datetime.datetime.now().hour)
+        if sys.platform == "darwin": macOS_setWallpaper(datetime.datetime.now().hour)
+        elif sys.platform == "linux": linux_setWallpaper(datetime.datetime.now().hour)
         print(f"Changed wallpaper to {datetime.datetime.now().hour}:00 variant.")
         time.sleep(3600)

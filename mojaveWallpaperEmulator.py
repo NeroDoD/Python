@@ -41,7 +41,10 @@ def macOS_setWallpaper(hour):
 def linux_setWallpaper(hour):
         os.system(f"gsettings set org.gnome.desktop.background picture-uri file://'{str(Path.home())}/Mojave Wallpaper/{folder}/{str(hour)}.jpeg'")
 
-
+#Check whether program should run
+if wallpaperSettings.programDisabled:
+        while True:
+                time.sleep(999999)
 
 #Actual program
 #folder = getInput()

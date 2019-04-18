@@ -2,3 +2,4 @@
 #For the Solar Grandient wallpapers set: folder = "Solar"
 
 folder = "Desert"
+programDisabled = False

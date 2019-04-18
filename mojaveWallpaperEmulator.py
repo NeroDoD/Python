@@ -1,5 +1,6 @@
 #!/usr/local/bin/python3
 from sys import platform
+from pathlib import Path
 if platform == "darwin": from appscript import *
 import argparse
 import time
@@ -35,7 +36,7 @@ def macOS_setWallpaper(hour):
 
 #Linux wallpaper 'setter'
 def linux_setWallpaper(hour):
-        os.system(f"gsettings set org.gnome.desktop.background picture-uri file://'/home/nero/Mojave Wallpaper/{folder}/{str(hour)}.jpeg'")
+        os.system(f"gsettings set org.gnome.desktop.background picture-uri file://'{str(Path.home())}/Mojave Wallpaper/{folder}/{str(hour)}.jpeg'")
 
 
 

@@ -7,6 +7,7 @@ import time
 import datetime
 import subprocess
 import os
+import wallpaperSettings
 
 '''
 There must be two folders called 'Desert' and 'Solar'
@@ -14,7 +15,7 @@ in the same path as the 'mojaveWallpaperEmulator.py' file itself.
 These folders must contain 24 images named '0.jpeg', '1.jpeg'...'23.jpeg'
 '''
 
-#Gets input from the user on launch
+#Gets input from the user on launch (UNUSED)
 def getInput():
         while True:
                 subprocess.call("clear")
@@ -41,7 +42,8 @@ def linux_setWallpaper(hour):
 
 
 #Actual program
-folder = getInput()
+#folder = getInput()
+folder = wallpaperSettings.folder
 subprocess.call("clear")
 if platform == "darwin": macOS_setWallpaper(datetime.datetime.now().hour)
 elif platform == "linux": linux_setWallpaper(datetime.datetime.now().hour)

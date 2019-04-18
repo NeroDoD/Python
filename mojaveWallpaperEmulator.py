@@ -35,7 +35,7 @@ def macOS_setWallpaper(hour):
 
 #Linux wallpaper 'setter'
 def linux_setWallpaper(hour):
-        os.system(f"gsettings set org.gnome.desktop.background picture-uri file://'~/Mojave Wallpaper/{folder}/{str(hour)}.jpeg'")
+        os.system(f"gsettings set org.gnome.desktop.background picture-uri file://'/home/nero/Mojave Wallpaper/{folder}/{str(hour)}.jpeg'")
 
 
 

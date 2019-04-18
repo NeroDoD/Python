@@ -42,7 +42,7 @@ def linux_setWallpaper(hour):
         os.system(f"gsettings set org.gnome.desktop.background picture-uri file://'{str(Path.home())}/.wallchanger/{folder}/{str(hour)}.jpeg'")
 
 #Terminate program if it has been disabled in settings
-if wallpaperSettings.programDisabled: sys.exit()
+if wallpaperSettings.programDisabled: print("The program has been disabled in settings.\nExiting..."); sys.exit()
 
 #Actual program
 #folder = getInput()

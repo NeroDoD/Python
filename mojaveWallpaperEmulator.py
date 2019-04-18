@@ -31,9 +31,11 @@ def getInput():
 def macOS_setWallpaper(hour):
         se = app('System Events')
         desktops = se.desktops.display_name.get()
+        user = str(Path.home())[7:]
+        os.chdir("/")
         for d in desktops:
                 desk = se.desktops[its.display_name == d]
-                desk.picture.set(mactypes.File(f"{folder}/{str(hour)}.jpeg"))
+                desk.picture.set(mactypes.File(f"Users/{user}/Mojave Wallpaper/{folder}/{str(hour)}.jpeg"))
 
 #Linux wallpaper 'setter'
 def linux_setWallpaper(hour):

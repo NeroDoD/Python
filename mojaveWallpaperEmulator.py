@@ -41,7 +41,7 @@ def macOS_setWallpaper(hour):
 def linux_setWallpaper(hour):
         linux_picturePath = f'{str(Path.home())}/.wallchanger/{folder}/{str(hour)}.jpeg'
         os.system(f"gsettings set org.gnome.desktop.background picture-uri file://{linux_picturePath}")
-        os.system(f"wal -i {linux_picturePath} -n -q -a '80' -b 000")
+        os.system(f"wal -i {linux_picturePath -n -q -a '80' -b 000")
 
 #Terminate program if it has been disabled in settings
 if wallpaperSettings.programDisabled: print("The program has been disabled in settings.\nExiting..."); sys.exit()

@@ -3,3 +3,4 @@
 
 folder = "Desert"
 programDisabled = False
+useFeh = False

@@ -44,6 +44,10 @@ def linux_setWallpaper(hour):
                 os.system(f"feh --bg-scale {linux_picturePath}")
         else:
                 os.system(f"gsettings set org.gnome.desktop.background picture-uri file://{linux_picturePath}")
+        if (hour >= 8) and (hour < 21):
+                os.system("gsettings set org.gnome.desktop.interface gtk-theme Yaru-Blue")
+        else:
+                os.system("gsettings set org.gnome.desktop.interface gtk-theme Yaru-Blue-dark")
         os.system(f"wal -i {linux_picturePath} -n -q -a '80' -b 000")
 
 #Terminate program if it has been disabled in settings
